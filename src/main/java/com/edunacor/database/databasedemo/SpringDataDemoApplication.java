@@ -11,16 +11,17 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.edunacor.database.databasedemo.entity.Person;
 import com.edunacor.database.databasedemo.jpa.PersonJpaRepository;
+import com.edunacor.database.databasedemo.springdata.PersonSpringDataRepository;
 
-//@SpringBootApplication
-public class JpaDemoApplication implements CommandLineRunner{
+@SpringBootApplication
+public class SpringDataDemoApplication implements CommandLineRunner{
 
-	private Logger logger = LoggerFactory.getLogger(JpaDemoApplication.class);
+	private Logger logger = LoggerFactory.getLogger(SpringDataDemoApplication.class);
 	
 	@Autowired
-	PersonJpaRepository personJpaDao;
+	PersonSpringDataRepository personJpaDao;
 	public static void main(String[] args) {
-		SpringApplication.run(JpaDemoApplication.class, args);
+		SpringApplication.run(SpringDataDemoApplication.class, args);
 	}
 
 	@Override
@@ -31,10 +32,10 @@ public class JpaDemoApplication implements CommandLineRunner{
 		logger.info("Deleting 10002 => No. of rows impacted");
 		personJpaDao.deleteById(10002);
 		
-		logger.info("Insert 10004 => {}",personJpaDao.insert
+		logger.info("Insert 10004 => {}",personJpaDao.save
 				(new Person("Tara","VA",new Timestamp(System.currentTimeMillis()))));
 		
-		logger.info("Update 10003=> {}",personJpaDao.update
+		logger.info("Update 10003=> {}",personJpaDao.save
 				(new Person(10003,"Pieter","Utrecht",new Timestamp(System.currentTimeMillis()))));
 				
 		logger.info("UserList => {}",personJpaDao.findAll());
