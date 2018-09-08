@@ -1,6 +1,5 @@
 package com.edunacor.database.databasedemo;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 
 import org.slf4j.Logger;
@@ -8,20 +7,18 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 import com.edunacor.database.databasedemo.entity.Person;
 import com.edunacor.database.databasedemo.jdbc.PersonJdbcDAO;
 
-@SpringBootApplication
-public class DatabaseDemoApplication implements CommandLineRunner{
+//@SpringBootApplication
+public class SpringJdbcDemoApplication implements CommandLineRunner{
 
-	private Logger logger = LoggerFactory.getLogger(DatabaseDemoApplication.class);
+	private Logger logger = LoggerFactory.getLogger(SpringJdbcDemoApplication.class);
 	
 	@Autowired
 	PersonJdbcDAO personJdbcDao;
 	public static void main(String[] args) {
-		SpringApplication.run(DatabaseDemoApplication.class, args);
+		SpringApplication.run(SpringJdbcDemoApplication.class, args);
 	}
 
 	@Override
